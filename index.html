@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayasha Nanda | Moon of Yesterday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #647fc2;
+            --text-black: #000000;
+            --accent-blue: #1800ad;
+            --white-alpha: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-black);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 { 
+            margin: 0; 
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem; 
+            letter-spacing: -1px;
+            color: var(--text-black);
+        }
+
+        .tagline { 
+            font-weight: 600; 
+            color: var(--text-black); 
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Tabs --- */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.1);
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-black);
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--text-black);
+            color: #fff;
+        }
+
+        .content-section { display: none; animation: fadeIn 0.4s ease-out; }
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 50px;
+            align-items: start;
+            background: var(--white-alpha);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .display-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .author-photo {
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 0; }
+        
+        .formats {
+            margin: 25px 0 10px 0;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-black);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 15px;
+        }
+
+        .links-list { list-style: none; padding: 0; }
+        .links-list li { margin: 12px 0; }
+        .links-list a { 
+            color: var(--text-black); 
+            text-decoration: none; 
+            font-weight: 700;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .links-list a:hover { border-bottom: 2px solid var(--text-black); }
+
+        .work-item { margin-bottom: 30px; }
+        .work-item h4 { 
+            margin-bottom: 2px; 
+        }
+        .work-item h5 { 
+            margin-top: 0; 
+            margin-bottom: 10px; 
+            font-weight: normal; 
+            opacity: 0.8;
+        }
+        .work-item p { margin-top: 0; opacity: 0.9; }
+
+        .icon-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            font-size: 22px;
+            color: var(--text-black);
+            text-decoration: none;
+            transition: 0.25s;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .icon:hover {
+            transform: translateY(-5px);
+            background: var(--text-black);
+            color: white;
+        }
+
+        .footer-inquiry {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout { grid-template-columns: 1fr; text-align: center; padding: 25px; }
+            .icon-container { justify-content: center; }
+            h1 { font-size: 2.8rem; }
+            .tabs { gap: 8px; }
+            .tab-btn { padding: 10px 18px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Prayasha Nanda</h1>
+            <p class="tagline">Moon of Yesterday is out!</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'book')">The Book</button>
+            <button class="tab-btn" onclick="openTab(event, 'works')">Other Works</button>
+            <button class="tab-btn" onclick="openTab(event, 'author')">Find the Author</button>
+        </nav>
+
+        <section id="book" class="content-section active">
+            <div class="grid-layout">
+                <img src="MoY_cover.jpg" alt="Moon of Yesterday Cover" class="display-img">
+                <div>
+                    <h3>Explore the Story</h3>
+                    <p>A contemporary soft sci-fi exploration of memory, time, and the weight of grief. Join Lyra as she finds out that time can shatter people's reality and people can shatter reality for time.</p>
+                    
+                    <div class="formats">Available in: paperback | hardcover | kindle</div>
+                    <div class="formats" style="border:none; padding:0; margin-top:0;">Order Links</div>
+                    <ul class="links-list">
+                        <li><a href="https://www.amazon.in/dp/B0GTPS5BLY">Amazon.in</a></li>
+                        <li><a href="https://www.amazon.com/dp/B0GTPS5BLY">Amazon.com</a></li>
+                        <li><a href="https://www.amazon.co.uk/dp/B0GTPS5BLY">Amazon.co.uk</a></li>
+                        <li><a href="https://notionpress.com/in/read/moon-of-yesterday">Notion Press Store</a></li>
+                        <li><a href="https://www.goodreads.com/book/show/250377114-moon-of-yesterday">Add on Goodreads</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="works" class="content-section">
+            <div class="grid-layout" style="display: block;">
+                <h3>Academic & Literary Contributions</h3>
+                
+                <div class="work-item">
+                    <h4>Transforming Education Through AI-Powered Personalized Assessment</h4>
+                    <h5><em>Chapter 7 of the volume "Adopting Artificial Intelligence Tools in Higher Education – Student Assessment"</em></h5>
+                    <p>It explores how AI can support the development of personalized, responsive, and learner-centered assessment systems.<br>My work in this chapter focused on adapting AI-driven assessment methodologies to the Indian education system. It challenged me to consider the complexities of local contexts, giving me a broader appreciation for the potential and limitations of AI in education.</p>
+                </div>
+
+                <div class="work-item">
+                    <h4>Elsewhere in August</h4>
+                    <p>Contributor to the poetry anthology <em>Elsewhere in August</em>, featuring my tribute poem to the famous artist <em>wowaka</em>, who changed the entire music industry forever with his high bpm (beats per minute) songs and lyrics that did not shy away from the harsh reality, using Vocaloid software.</p>
+                </div>
+
+                <div class="work-item">
+                    <h4>Technical Writing</h4>
+                    <p>Regular contributor to the official technical blog for my college club, covering topics ranging from Digital Ownership to evolving landscape of Artificial Intelligence.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="author" class="content-section">
+            <div class="grid-layout">
+                <img src="auth_prayasha_square.jpeg" alt="Prayasha Nanda" class="display-img author-photo">
+                <div>
+                    <h3>About Prayasha</h3>
+                    <p>Prayasha Nanda is a student and writer, exploring stories at the intersection of technology and human emotion. Her work spans soft sci-fi and poetry, often centered on memory, time, and the quiet weight of things left unsaid.</p>
+                    <p>Currently pursuing Computer Science and Engineering with a specialization in AIML, she is interested in building and understanding intelligent systems, and how technology shapes the way we interact with the world.</p>
+                    <div class="icon-container">
+                        <a href="mailto:prayashaxnanda@gmail.com" class="icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="https://www.instagram.com/prayasha_nanda" class="icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.amazon.in/stores/author/B0GV6BXY7H" class="icon"><i class="fa-brands fa-amazon"></i></a>
+                        <a href="https://www.goodreads.com/user/show/199854080-prayasha-nanda" class="icon"><i class="fa-brands fa-goodreads"></i></a>
+                        <a href="https://www.linkedin.com/in/prayasha-nanda/" class="icon"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-inquiry">
+            For inquiries: prayashaxnanda@gmail.com
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, content, tablinks;
+            content = document.getElementsByClassName("content-section");
+            for (i = 0; i < content.length; i++) { 
+                content[i].style.display = "none"; 
+                content[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { 
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

@@ -7,10 +7,6 @@ It includes:
 - Author bio and social links
 - Contact email for verification and inquiries
 
-## Purpose
-
-This site was created as a verified author webpage for Goodreads Author Program approval, while also functioning as a simple long-term author landing page.
-
 ## Tech Stack
 
 - HTML5

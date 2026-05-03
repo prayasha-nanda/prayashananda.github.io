@@ -6,9 +6,11 @@ The site serves as a central hub for both literary works and technical milestone
 
 
 It includes:
-- Book information and purchase links (Amazon, Notion Press, Goodreads)
-- Author bio and social links
-- Contact email for verification and inquiries
+- My Resume
+- My Technical Experience and Projects
+- My Technical Certifications
+- My debut novel information and purchase links
+- Bio, social links, and contact email for verification and inquiries
 
 ## Tech Stack
 

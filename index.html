@@ -217,68 +217,67 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .cert-container {
+        .certs-layout-wrapper {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
-            overflow-x: auto;
-            padding: 10px 0 20px 0;
             align-items: stretch;
-            justify-content: flex-start;
         }
 
-        .cert-badge-wrapper {
-            flex: 0 0 180px; 
+        /* Vertical container for Credly badges */
+        .credly-column {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .credly-badge-item {
+            flex: 0 0 170px;
             background: rgba(255, 255, 255, 0.4);
             border-radius: 12px;
             height: 270px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             border: 1px solid var(--glass-border);
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .cert-badge-wrapper > div {
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-        }
-
-        .cert-badge-wrapper.static-badge {
-            flex: 0 0 240px; 
-        }
-
-        .cert-static {
-            width: 100%;
-            height: 100%;
+        .standalone-card {
+            flex: 1;
+            min-width: 320px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
+        .standalone-card:hover { transform: translateY(-3px); }
 
-        .cert-static img {
+        .standalone-card img {
             width: 100%;
-            max-width: 200px;
-            height: 130px; 
-            object-fit: contain;
-            border-radius: 4px;
-            margin: 10px 0 auto 0; 
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            max-width: 380px;
+            height: auto;
+            border-radius: 8px;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+            margin-bottom: 15px;
         }
 
-        .cert-label {
-            font-size: 0.85rem;
+        .standalone-card .cert-label {
             font-weight: 700;
+            font-size: 0.95rem;
             color: var(--text-black);
-            line-height: 1.3;
-            margin-top: 10px;
-            margin-bottom: 25px;
+            margin: 0;
+            opacity: 0.9;
         }
-
+        
         /* Typography */
         h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
         h4 { margin: 0 0 5px 0; font-size: 1.2rem; padding-right: 50px; }
@@ -471,23 +470,21 @@
                 </div>
 
                 <h3 style="margin-top: 40px;">Certifications</h3>
-                <div class="cert-container" id="cert-section">
-                    <!-- Amazon Credly -->
-                    <div class="cert-badge-wrapper">
-                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8ac857e1-aa74-4ce4-a6ec-fa278739074f" data-share-badge-host="https://www.credly.com"></div>
-                    </div>
-                    
-                    <!-- Microsoft Credly -->
-                    <div class="cert-badge-wrapper">
-                        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="da0e6d12-d0b7-4a16-96fc-6a05f540bd53" data-share-badge-host="https://www.credly.com"></div>
+                <div class="certs-layout-wrapper">
+                    <!-- Credly Section -->
+                    <div class="credly-column">
+                        <div class="credly-badge-item">
+                            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8ac857e1-aa74-4ce4-a6ec-fa278739074f" data-share-badge-host="https://www.credly.com"></div>
+                        </div>
+                        <div class="credly-badge-item">
+                            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="da0e6d12-d0b7-4a16-96fc-6a05f540bd53" data-share-badge-host="https://www.credly.com"></div>
+                        </div>
                     </div>
 
                     <!-- NVIDIA (Static Image) -->
-                    <div class="cert-badge-wrapper static-badge">
-                        <div class="cert-static">
-                            <img src="assets/nvidia.png" alt="NVIDIA Certification">
-                            <div class="cert-label">NVIDIA Deep Learning Institute Certified</div>
-                        </div>
+                    <div class="standalone-card">
+                        <img src="assets/nvidia.png" alt="NVIDIA Certification">
+                        <p class="cert-label">NVIDIA Deep Learning Institute Certified</p>
                     </div>
                 </div>
                 <!-- Credly Embed Script -->
